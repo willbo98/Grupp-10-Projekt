@@ -1,0 +1,51 @@
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class QuestChecker : MonoBehaviour
+{
+    [SerializeField] private GameObject dialogueBox, finishedText, unfinishedText;
+    [SerializeField] private int questGoal = 15;
+    [SerializeField] private int levelToLoad;
+
+    [SerializeField] Animator anim;
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+        dialogueBox.SetActive(false);
+        finishedText.SetActive(false);
+        unfinishedText.SetActive(false);
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            if(other.GetComponent<PlayerMovementscript>(). pineAppleCollected >= questGoal)
+            {
+                dialogueBox.SetActive(true);
+                finishedText.SetActive(true);
+                anim.SetTrigger("Flag");
+                Invoke("LoadNextlevel", 3.5f);
+            }
+            else
+            {
+                dialogueBox.SetActive(true);   
+                unfinishedText.SetActive(true);  
+            }
+        }
+
+    }
+    private void LoadNextlevel ()
+    {
+        SceneManager.LoadScene(levelToLoad);
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        { 
+            dialogueBox.SetActive(false);
+            finishedText.SetActive(false);
+            unfinishedText.SetActive(false);
+        }
+    }
+}
