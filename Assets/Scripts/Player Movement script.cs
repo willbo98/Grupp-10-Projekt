@@ -21,10 +21,10 @@ public class PlayerMovementscript : MonoBehaviour
     private int startingHealth = 5;
     private int currentHealth = 0;
     public int pineAppleCollected = 0;
-    //testar med vad chatgpt ville att man ska göra för dustparticles on landing men försöker förstå hur den menar
+    //testar med vad chatgpt ville att man ska gï¿½ra fï¿½r dustparticles on landing men fï¿½rsï¿½ker fï¿½rstï¿½ hur den menar
     private bool wasGrounded;
-    //skickar ut en fråga via bool som har true or false
-
+    //skickar ut en frï¿½ga via bool som har true or false
+    private int doublejumpvalue = 2;
 
     private Rigidbody2D Rgbd;
     private SpriteRenderer rend;
@@ -47,6 +47,7 @@ public class PlayerMovementscript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        print(doublejumpvalue);
         horizontalValue = Input.GetAxis("Horizontal");
 
         if(horizontalValue < 0 )
@@ -58,7 +59,7 @@ public class PlayerMovementscript : MonoBehaviour
             FlipSprite(false);
         }
 
-        if (Input.GetButtonDown("Jump") && CheckIfGrounded() == true)
+        if (Input.GetButtonDown("Jump") && (CheckIfGrounded() == true || doublejumpvalue > 0))
         {
             Jump();
         }
@@ -85,17 +86,18 @@ public class PlayerMovementscript : MonoBehaviour
         bool isCurrentlyGrounded = CheckIfGrounded();
 
         if (!wasGrounded && isCurrentlyGrounded && Rgbd.linearVelocity.y <= 0f)
-            //om jag inte var grounded och jag blir grounded och min velocity på Y axeln är mindre = eller mindre än 0f så sätt igång dustparticles.
+            //om jag inte var grounded och jag blir grounded och min velocity pï¿½ Y axeln ï¿½r mindre = eller mindre ï¿½n 0f sï¿½ sï¿½tt igï¿½ng dustparticles.
         {
+            doublejumpvalue = 2;
             Vector3 dustPos = transform.position + Vector3.down * 0.5f;
-            //Jag fattar inte riktigt denna kod här. men 
+            //Jag fattar inte riktigt denna kod hï¿½r. men 
             Instantiate(dustParticles, transform.position, Quaternion.identity);
         }
         wasGrounded = isCurrentlyGrounded;
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("PineApple"))
+        if(other.CompareTag("PineApple")) 
         {
             Destroy(other.gameObject);
             pineAppleCollected++;
@@ -119,6 +121,8 @@ public class PlayerMovementscript : MonoBehaviour
         Instantiate(dustParticles, transform.position, Quaternion.identity);
         audioSource.PlayOneShot(jumpSound, 0.3f);
         audioSource.pitch = Random.Range(0.9f, 1.1f);
+        doublejumpvalue--;
+        
     }
     private bool CheckIfGrounded()
     {
@@ -129,7 +133,7 @@ public class PlayerMovementscript : MonoBehaviour
         if (leftHit.collider != null && leftHit.collider.CompareTag("Ground") || rightHit.collider != null && rightHit.collider.CompareTag("Ground"))
         {
             return true;
-        }
+         }
         else
         {
             return false;
