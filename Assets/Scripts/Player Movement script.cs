@@ -13,6 +13,7 @@ public class PlayerMovementscript : MonoBehaviour
     [SerializeField] private TMP_Text pineAppleText;
     [SerializeField] private GameObject pineAppleParticles, dustParticles;
     [SerializeField] private AudioClip jumpSound, pickupSound, healthUpSound;
+    [SerializeField] private bool canDoubleJump;
     
 
     private float horizontalValue;
@@ -24,7 +25,7 @@ public class PlayerMovementscript : MonoBehaviour
     //testar med vad chatgpt ville att man ska g�ra f�r dustparticles on landing men f�rs�ker f�rst� hur den menar
     private bool wasGrounded;
     //skickar ut en fr�ga via bool som har true or false
-    private int doublejumpvalue = 2;
+    private int doublejumpvalue;
 
     private Rigidbody2D Rgbd;
     private SpriteRenderer rend;
@@ -41,6 +42,12 @@ public class PlayerMovementscript : MonoBehaviour
         rend = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
+
+
+        if (canDoubleJump == true)
+        {
+            doublejumpvalue = 2;
+        }
         
     }
 
@@ -86,12 +93,15 @@ public class PlayerMovementscript : MonoBehaviour
         bool isCurrentlyGrounded = CheckIfGrounded();
 
         if (!wasGrounded && isCurrentlyGrounded && Rgbd.linearVelocity.y <= 0f)
-            //om jag inte var grounded och jag blir grounded och min velocity p� Y axeln �r mindre = eller mindre �n 0f s� s�tt ig�ng dustparticles.
+        //om jag inte var grounded och jag blir grounded och min velocity p� Y axeln �r mindre = eller mindre �n 0f s� s�tt ig�ng dustparticles.
         {
-            doublejumpvalue = 2;
             Vector3 dustPos = transform.position + Vector3.down * 0.5f;
             //Jag fattar inte riktigt denna kod h�r. men 
             Instantiate(dustParticles, transform.position, Quaternion.identity);
+            if (canDoubleJump == true)
+            {
+                doublejumpvalue = 2;
+            }
         }
         wasGrounded = isCurrentlyGrounded;
     }
@@ -121,7 +131,10 @@ public class PlayerMovementscript : MonoBehaviour
         Instantiate(dustParticles, transform.position, Quaternion.identity);
         audioSource.PlayOneShot(jumpSound, 0.3f);
         audioSource.pitch = Random.Range(0.9f, 1.1f);
-        doublejumpvalue--;
+        if (canDoubleJump == true)
+        {
+            doublejumpvalue--;
+        }
         
     }
     private bool CheckIfGrounded()
