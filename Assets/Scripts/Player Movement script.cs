@@ -13,7 +13,7 @@ public class PlayerMovementscript : MonoBehaviour
     [SerializeField] private TMP_Text pineAppleText;
     [SerializeField] private GameObject pineAppleParticles, dustParticles;
     [SerializeField] private AudioClip jumpSound, pickupSound, healthUpSound;
-    [SerializeField] private bool canDoubleJump;
+    [SerializeField] private bool doubleJumpEnabled;
     
 
     private float horizontalValue;
@@ -25,7 +25,7 @@ public class PlayerMovementscript : MonoBehaviour
     //testar med vad chatgpt ville att man ska g�ra f�r dustparticles on landing men f�rs�ker f�rst� hur den menar
     private bool wasGrounded;
     //skickar ut en fr�ga via bool som har true or false
-    private int doublejumpvalue;
+    private bool canDoubleJump = false;
 
     private Rigidbody2D Rgbd;
     private SpriteRenderer rend;
@@ -43,17 +43,14 @@ public class PlayerMovementscript : MonoBehaviour
         anim = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
 
-        // om man kan dubbelhoppa sätts doublejumpvalue till 2 annars förblir det 0.
-        if (canDoubleJump == true)
-        {
-            doublejumpvalue = 2;
-        }
+        
         
     }
 
     // Update is called once per frame
     void Update()
     {
+
         
         horizontalValue = Input.GetAxis("Horizontal");
 
@@ -66,7 +63,7 @@ public class PlayerMovementscript : MonoBehaviour
             FlipSprite(false);
         }
 
-        if (Input.GetButtonDown("Jump") && (CheckIfGrounded() == true || doublejumpvalue > 0))
+        if (Input.GetButtonDown("Jump") && (CheckIfGrounded() == true || canDoubleJump == true))
         {
             Jump();
         }
@@ -98,11 +95,8 @@ public class PlayerMovementscript : MonoBehaviour
             Vector3 dustPos = transform.position + Vector3.down * 0.5f;
             //Jag fattar inte riktigt denna kod h�r. men 
             Instantiate(dustParticles, transform.position, Quaternion.identity);
-            // doublejumpvalue återställs bara om vi har doublejump aktiverat.
-            if (canDoubleJump == true)
-            {
-                doublejumpvalue = 2;
-            }
+            
+            
         }
         wasGrounded = isCurrentlyGrounded;
     }
@@ -132,12 +126,13 @@ public class PlayerMovementscript : MonoBehaviour
         Instantiate(dustParticles, transform.position, Quaternion.identity);
         audioSource.PlayOneShot(jumpSound, 0.3f);
         audioSource.pitch = Random.Range(0.9f, 1.1f);
-
-        // doublejumpvalue minskar bara om doublejump är aktiverat.
-        if (canDoubleJump == true)
+        // när man hoppar sätts candoublejump till false.
+        if (doubleJumpEnabled == true)
         {
-            doublejumpvalue--;
+            canDoubleJump = false;
         }
+
+        
         
     }
     private bool CheckIfGrounded()
@@ -148,10 +143,17 @@ public class PlayerMovementscript : MonoBehaviour
 
         if (leftHit.collider != null && leftHit.collider.CompareTag("Ground") || rightHit.collider != null && rightHit.collider.CompareTag("Ground"))
         {
+            // när man är grounded sätts candoublejump till true.
+            if (doubleJumpEnabled == true)
+            {
+                canDoubleJump = true;
+            }
+            
             return true;
          }
         else
         {
+            
             return false;
         }
     }
