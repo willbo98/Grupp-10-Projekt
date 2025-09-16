@@ -43,7 +43,7 @@ public class PlayerMovementscript : MonoBehaviour
         anim = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
 
-
+        // om man kan dubbelhoppa sätts doublejumpvalue till 2 annars förblir det 0.
         if (canDoubleJump == true)
         {
             doublejumpvalue = 2;
@@ -54,7 +54,7 @@ public class PlayerMovementscript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(doublejumpvalue);
+        
         horizontalValue = Input.GetAxis("Horizontal");
 
         if(horizontalValue < 0 )
@@ -98,6 +98,7 @@ public class PlayerMovementscript : MonoBehaviour
             Vector3 dustPos = transform.position + Vector3.down * 0.5f;
             //Jag fattar inte riktigt denna kod h�r. men 
             Instantiate(dustParticles, transform.position, Quaternion.identity);
+            // doublejumpvalue återställs bara om vi har doublejump aktiverat.
             if (canDoubleJump == true)
             {
                 doublejumpvalue = 2;
@@ -131,6 +132,8 @@ public class PlayerMovementscript : MonoBehaviour
         Instantiate(dustParticles, transform.position, Quaternion.identity);
         audioSource.PlayOneShot(jumpSound, 0.3f);
         audioSource.pitch = Random.Range(0.9f, 1.1f);
+
+        // doublejumpvalue minskar bara om doublejump är aktiverat.
         if (canDoubleJump == true)
         {
             doublejumpvalue--;
