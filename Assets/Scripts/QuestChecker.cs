@@ -19,7 +19,7 @@ public class QuestChecker : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if(other.GetComponent<PlayerMovementscript>(). pineAppleCollected >= questGoal)
+            if(other.GetComponent<PlayerPickup>().pineAppleCollected >= questGoal)
             {
                 dialogueBox.SetActive(true);
                 finishedText.SetActive(true);

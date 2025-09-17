@@ -19,7 +19,7 @@ public class EnemyMovement : MonoBehaviour
     private AudioSource audioSource;
     private bool canPlaySound = false;
 
-    //allt script var följt enligt videon men fick hjälp att fixa så att ljudeffekterna faktiskt var ordentligt fixade. 
+    //allt script var fï¿½ljt enligt videon men fick hjï¿½lp att fixa sï¿½ att ljudeffekterna faktiskt var ordentligt fixade. 
 
     private void Start()
     {
@@ -60,14 +60,15 @@ public class EnemyMovement : MonoBehaviour
             audioSource.pitch = Random.Range(0.9f, 1.1f);
             audioSource.PlayOneShot(hitSound, 0.3f);
 
+
             
-            var player = other.gameObject.GetComponent<PlayerMovementscript>();
-            player.TakeDamage(damageGiven);
+            other.gameObject.GetComponent<PlayerHealth>().TakeDamage(damageGiven);
+            
 
             if (other.transform.position.x > transform.position.x)
-                player.TakeKnockBack(knockBackForce, upwardForce);
+                other.gameObject.GetComponent<PlayerMovement>().TakeKnockBack(knockBackForce, upwardForce);
             else
-                player.TakeKnockBack(-knockBackForce, upwardForce);
+                other.gameObject.GetComponent<PlayerMovement>().TakeKnockBack(-knockBackForce, upwardForce);
         }
     }
 
