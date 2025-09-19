@@ -204,6 +204,8 @@ GameObject:
   m_Component:
   - component: {fileID: 45382482}
   - component: {fileID: 45382481}
+  - component: {fileID: 45382484}
+  - component: {fileID: 45382483}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -223,10 +225,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4e480fed1b84d647b150b1f568e661b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volume: 0
-  volumeslider: {fileID: 232068176}
-  musicplayer: {fileID: 1572618315}
-  soundeffects: {fileID: 0}
 --- !u!4 &45382482
 Transform:
   m_ObjectHideFlags: 0
@@ -242,6 +240,31 @@ Transform:
   m_Children: []
   m_Father: {fileID: 406174595}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &45382483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45382480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24afa79d153c7b24eaf26e21da9ce074, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &45382484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45382480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4518c0cdcfb33314b9d3ba55b32b6726, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeSlider: {fileID: 232068176}
 --- !u!1 &101819411
 GameObject:
   m_ObjectHideFlags: 0
@@ -1032,8 +1055,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1572618316}
   - {fileID: 45382482}
+  - {fileID: 1572618316}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &435904626
@@ -2739,10 +2762,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4e480fed1b84d647b150b1f568e661b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volume: 0
-  volumeslider: {fileID: 0}
-  musicplayer: {fileID: 0}
-  soundeffects: {fileID: 0}
 --- !u!1 &1588023098
 GameObject:
   m_ObjectHideFlags: 0

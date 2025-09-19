@@ -445,6 +445,17 @@ MonoBehaviour:
   dustParticles: {fileID: 597752429105445193, guid: 03b58d8801d53c742818000e4ca44511, type: 3}
   jumpSound: {fileID: 8300000, guid: 2e2da8f35a55fad4bbf1d02d55a59edd, type: 3}
   doubleJumpEnabled: 0
+  enableWallJumping: 1
+  wallCheckLeft: {fileID: 0}
+  wallCheckRight: {fileID: 0}
+  wallCheckDistance: 0.5
+  whatIsWall:
+    serializedVersion: 2
+    m_Bits: 0
+  wallSlideSpeed: 0.5
+  wallJumpForce: 10
+  wallJumpDirection: {x: 1, y: 1}
+  wallJumpDuration: 0.2
 --- !u!95 &63324835
 Animator:
   serializedVersion: 7
@@ -596,6 +607,39 @@ MonoBehaviour:
   pineAppleParticles: {fileID: 6623075433067777308, guid: da1c34a7f3a034a419d70612225a8d32, type: 3}
   pickupSound: {fileID: 8300000, guid: e0a542c3a1e779f4eac1dc7ab07e23d3, type: 3}
   pineAppleCollected: 0
+--- !u!1 &64141528
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 64141529}
+  m_Layer: 0
+  m_Name: --AUDIO--
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &64141529
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 64141528}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 428.99133, y: 451.81277, z: -1.4062338}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1806482091}
+  - {fileID: 972398708}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &66462280
 GameObject:
   m_ObjectHideFlags: 0
@@ -4554,12 +4598,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 972398706}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.229668, y: 18.973932, z: -0.1801886}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -409.76166, y: -432.83884, z: 1.2260451}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 64141529}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &989033202
 GameObject:
@@ -8617,6 +8661,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2603493742894565043, guid: 0b3d892c9c41b6f43a7ab23ecea4ced4, type: 3}
   m_PrefabInstance: {fileID: 1936360155}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1806482089
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1806482091}
+  - component: {fileID: 1806482090}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1806482090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806482089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24afa79d153c7b24eaf26e21da9ce074, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1806482091
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806482089}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 382.61133, y: -64.78113, z: -6.387827}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 64141529}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1811349097
 GameObject:
   m_ObjectHideFlags: 0
@@ -13809,4 +13897,4 @@ SceneRoots:
   - {fileID: 1225674552}
   - {fileID: 2110458367}
   - {fileID: 1280874516}
-  - {fileID: 972398708}
+  - {fileID: 64141529}
