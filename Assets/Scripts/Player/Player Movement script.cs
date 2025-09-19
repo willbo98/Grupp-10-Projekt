@@ -156,12 +156,16 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        Rgbd.AddForce(new Vector2(0, jumpForce));
+        Rgbd.linearVelocity = new Vector2(Rgbd.linearVelocity.x, 0f);
+
+        // Apply jump force
+        Rgbd.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+
         Instantiate(dustParticles, transform.position, Quaternion.identity);
         audioSource.PlayOneShot(jumpSound, 0.3f);
         audioSource.pitch = Random.Range(0.9f, 1.1f);
 
-        if (doubleJumpEnabled == true)
+        if (doubleJumpEnabled)
         {
             canDoubleJump = false;
         }
