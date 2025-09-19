@@ -570,12 +570,14 @@ Transform:
   m_GameObject: {fileID: 63324829}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.4, y: -0, z: 0}
+  m_LocalPosition: {x: 193.2, y: 31, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1487757917}
   - {fileID: 860182876}
+  - {fileID: 1401931146}
+  - {fileID: 2106224734}
   m_Father: {fileID: 1225674552}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!70 &63324833
@@ -631,19 +633,23 @@ MonoBehaviour:
   jumpForce: 400
   leftFoot: {fileID: 1487757917}
   rightFoot: {fileID: 860182876}
-  spawnPosition: {fileID: 1730859532}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 1088
-  healthSlider: {fileID: 2010017402}
-  pineAppleText: {fileID: 1426136910}
-  pineAppleParticles: {fileID: 6623075433067777308, guid: da1c34a7f3a034a419d70612225a8d32, type: 3}
   dustParticles: {fileID: 597752429105445193, guid: 03b58d8801d53c742818000e4ca44511, type: 3}
   jumpSound: {fileID: 8300000, guid: 2e2da8f35a55fad4bbf1d02d55a59edd, type: 3}
-  pickupSound: {fileID: 8300000, guid: e0a542c3a1e779f4eac1dc7ab07e23d3, type: 3}
-  healthUpSound: {fileID: 8300000, guid: 1049b818709bf5d459e910a2cf0824c3, type: 3}
   doubleJumpEnabled: 1
-  pineAppleCollected: 0
+  enableWallJumping: 1
+  wallCheckLeft: {fileID: 1401931146}
+  wallCheckRight: {fileID: 2106224734}
+  wallCheckDistance: 0.5
+  whatIsWall:
+    serializedVersion: 2
+    m_Bits: 64
+  wallSlideSpeed: 0.5
+  wallJumpForce: 10
+  wallJumpDirection: {x: 1, y: 1}
+  wallJumpDuration: 0.2
 --- !u!95 &63324835
 Animator:
   serializedVersion: 7
@@ -8308,6 +8314,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1390924679}
   m_CullTransparentMesh: 1
+--- !u!1 &1401931145
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1401931146}
+  m_Layer: 0
+  m_Name: DetectWall L
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1401931146
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1401931145}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.22, y: 0.41, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 63324832}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1404858504
 GameObject:
   m_ObjectHideFlags: 0
@@ -18490,6 +18527,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2603493742894565043, guid: fe01198a88996644aaea5a618c4f7130, type: 3}
   m_PrefabInstance: {fileID: 551358399}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2106224733
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2106224734}
+  m_Layer: 0
+  m_Name: DetectWall R
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2106224734
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2106224733}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.23, y: 0.41, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 63324832}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2110458366
 GameObject:
   m_ObjectHideFlags: 0

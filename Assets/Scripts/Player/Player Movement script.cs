@@ -10,8 +10,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private AudioClip jumpSound;
     [SerializeField] private bool doubleJumpEnabled;
 
+    //William WallJump
+    [SerializeField] private bool enableWallJumping = true; //toggle i main menu
+    [SerializeField] private Transform wallCheckLeft, wallCheckRight;
+    [SerializeField] private float wallCheckDistance = 0.5f;
+    [SerializeField] private LayerMask whatIsWall;
+
     private float horizontalValue;
     private bool wasGrounded;
+    private bool isGrounded;
     private bool canMove = true;
     private bool canDoubleJump = false;
     private Rigidbody2D Rgbd;
@@ -19,6 +26,40 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim;
     private AudioSource audioSource;
     private float rayDistance = 0.25f;
+
+    //WilliamWallJump
+    private bool isTouchingWall;
+    private bool isWallSliding;
+    [SerializeField] private float wallSlideSpeed = 0.5f;
+    [SerializeField] private float wallJumpForce = 10f;
+    [SerializeField] private Vector2 wallJumpDirection = new Vector2(1, 1);
+    [SerializeField] private float wallJumpDuration = 0.2f;
+    private bool isWallJumping;  
+    private int wallDirection;
+
+    //wallJump
+    private void WallJump()
+    {
+        isWallJumping = true;
+        Rgbd.linearVelocity = Vector2.zero;
+
+        Vector2 jumpDirection = new Vector2(wallDirection, 1).normalized;
+        Rgbd.AddForce(jumpDirection * wallJumpForce, ForceMode2D.Impulse);
+
+        FlipSprite(wallDirection < 0);
+
+        if (doubleJumpEnabled)
+        {
+            canDoubleJump = true;
+        }
+
+        Invoke(nameof(EndWallJump), wallJumpDuration);
+
+    }
+    private void EndWallJump()
+    {
+        isWallJumping = false;
+    }
 
     void Start()
     {
@@ -28,21 +69,40 @@ public class PlayerMovement : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
-    void Update()
+    //WallJump
+    void Update() //updaterad för att få walljump att funka
     {
         horizontalValue = Input.GetAxis("Horizontal");
+        isGrounded = CheckIfGrounded();
 
-        if (horizontalValue < 0) FlipSprite(true);
-        if (horizontalValue > 0) FlipSprite(false);
-
-        if (Input.GetButtonDown("Jump") && (CheckIfGrounded() == true || canDoubleJump == true))
+        if (horizontalValue < 0)
         {
-            Jump();
+            FlipSprite(true);
         }
+        if (horizontalValue > 0)
+        {
+            FlipSprite(false);
+        }
+
 
         anim.SetFloat("MoveSpeed", Mathf.Abs(Rgbd.linearVelocity.x));
         anim.SetFloat("VerticalSpeed", Rgbd.linearVelocity.y);
         anim.SetBool("IsGrounded", CheckIfGrounded());
+        if (Input.GetButtonDown("Jump"))
+        {
+            if (enableWallJumping && isWallSliding && !isGrounded)
+            {
+                WallJump();
+            }
+            else if (isGrounded)
+            {
+                Jump();
+            }
+            else if (doubleJumpEnabled && canDoubleJump)
+            {
+                Jump();
+            }
+        }
     }
 
     private void FixedUpdate()
@@ -58,6 +118,38 @@ public class PlayerMovement : MonoBehaviour
             Instantiate(dustParticles, transform.position, Quaternion.identity);
         }
         wasGrounded = isCurrentlyGrounded;
+
+        //WallJump
+        if (enableWallJumping)
+        {
+            bool wallOnRight = Physics2D.Raycast(wallCheckRight.position, Vector2.right, wallCheckDistance, whatIsWall);
+            bool wallOnLeft = Physics2D.Raycast(wallCheckLeft.position, Vector2.left, wallCheckDistance, whatIsWall);
+
+            isTouchingWall = wallOnRight || wallOnLeft;
+
+            wallDirection = wallOnRight ? -1 : (wallOnLeft ? 1 : 0);
+
+            if (isTouchingWall && !isGrounded && horizontalValue != 0)
+            {
+                isWallSliding = true;
+            }
+            else
+            {
+                isWallSliding = false;
+            }
+
+            if (isWallSliding)
+            {
+                Rgbd.linearVelocity = new Vector2(Rgbd.linearVelocity.x, Mathf.Clamp(Rgbd.linearVelocity.y, -wallSlideSpeed, float.MaxValue));
+            }
+        }
+        else
+        {
+            // If wall jump is disabled, reset related variables
+            isWallSliding = false;
+            isTouchingWall = false;
+            wallDirection = 0;
+        }
     }
 
     private void FlipSprite(bool direction) => rend.flipX = direction;
