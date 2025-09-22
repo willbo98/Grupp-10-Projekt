@@ -1,10 +1,11 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-//fixa så att main menu faktiskt funkar
+//fixa sï¿½ att main menu faktiskt funkar
 
 public class MenuController : MonoBehaviour
 {
     [SerializeField] private GameObject creditsPanel;
+    [SerializeField] private GameObject settingsPanel;
     public void StartGame()
     {
         SceneManager.LoadScene(1);
@@ -21,5 +22,14 @@ public class MenuController : MonoBehaviour
     public void closeCredits()
     {
         creditsPanel.SetActive(false);
+    }
+
+    public void ShowSettings()
+    {
+        settingsPanel.SetActive(true);
+    }
+    public void CloseSettings()
+    {
+        settingsPanel.SetActive(false);
     }
 }
