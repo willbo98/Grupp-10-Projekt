@@ -37,6 +37,9 @@ public class PlayerMovement : MonoBehaviour
     private bool isWallJumping;  
     private int wallDirection;
 
+    //aktivera delar av script via pikups
+
+
     //wallJump
     private void WallJump()
     {
@@ -199,4 +202,14 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void CanMoveAgain() => canMove = true;
+    public void EnableDoubleJump()
+    {
+        doubleJumpEnabled = true;
+        canDoubleJump = true; // so player can immediately use it
+    }
+
+    public void EnableWallJump()
+    {
+        enableWallJumping = true;
+    }
 }
