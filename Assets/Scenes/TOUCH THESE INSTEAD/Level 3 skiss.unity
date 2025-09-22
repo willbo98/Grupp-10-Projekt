@@ -530,6 +530,8 @@ GameObject:
   - component: {fileID: 63324831}
   - component: {fileID: 63324830}
   - component: {fileID: 63324833}
+  - component: {fileID: 63324838}
+  - component: {fileID: 63324837}
   - component: {fileID: 63324834}
   - component: {fileID: 63324835}
   - component: {fileID: 63324836}
@@ -631,7 +633,7 @@ Transform:
   m_GameObject: {fileID: 63324829}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 176.4, y: 33.4, z: 0}
+  m_LocalPosition: {x: -2.9, y: 1.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -830,6 +832,38 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &63324837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 63324829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97e380b15956bf540b6a054b12e58a79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 5
+  spawnPosition: {fileID: 1730859532}
+  healthSlider: {fileID: 2010017402}
+  healthUpSound: {fileID: 8300000, guid: 1049b818709bf5d459e910a2cf0824c3, type: 3}
+--- !u!114 &63324838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 63324829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14dc3d935d6200e4f979b415808233ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pineAppleText: {fileID: 1426136910}
+  pineAppleParticles: {fileID: 6623075433067777308, guid: da1c34a7f3a034a419d70612225a8d32, type: 3}
+  pickupSound: {fileID: 8300000, guid: e0a542c3a1e779f4eac1dc7ab07e23d3, type: 3}
+  pineAppleCollected: 0
 --- !u!4 &65663689 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2603493742894565043, guid: fe01198a88996644aaea5a618c4f7130, type: 3}
