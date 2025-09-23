@@ -11,9 +11,14 @@ GameObject:
   - component: {fileID: 2603493742894565043}
   - component: {fileID: 1899614099551123663}
   - component: {fileID: 5882131717357357176}
-  - component: {fileID: 3730011875360996286}
+  - component: {fileID: 2480218199633663985}
+  - component: {fileID: 512968310722695285}
+  - component: {fileID: 3905787142865948509}
   - component: {fileID: 1954685711922629720}
   - component: {fileID: -5634099228846436365}
+  - component: {fileID: 738494445761173088}
+  - component: {fileID: 6303298636308249540}
+  - component: {fileID: 6185120860349655274}
   m_Layer: 7
   m_Name: Rock Boss
   m_TagString: Enemy
@@ -113,7 +118,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &3730011875360996286
+--- !u!114 &2480218199633663985
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,15 +127,40 @@ MonoBehaviour:
   m_GameObject: {fileID: 152581223904887531}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ce7fb69219aa4749a712b1af15cbbd7, type: 3}
+  m_Script: {fileID: 11500000, guid: 996b9f41067b507479d9b1841b3cb330, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
+--- !u!114 &512968310722695285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 152581223904887531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8a55b01f4a78d64c91267333ea6d225, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   bounciness: 500
+  getHitSound: {fileID: 8300000, guid: 7b689124d1ec2d14d81f1fc198474602, type: 3}
+  bossHealth: 5
+--- !u!114 &3905787142865948509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 152581223904887531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c609009ee9d1cde4683d0251c01e1882, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   knockBackForce: 380
   upwardForce: 200
   damageGiven: 2
-  getHitSound: {fileID: 8300000, guid: 7b689124d1ec2d14d81f1fc198474602, type: 3}
   hitSound: {fileID: 8300000, guid: 7b689124d1ec2d14d81f1fc198474602, type: 3}
 --- !u!50 &1954685711922629720
 Rigidbody2D:
@@ -256,3 +286,142 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!58 &738494445761173088
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 152581223904887531}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 3.4049978}
+  m_Radius: 3.8494425
+--- !u!60 &6303298636308249540
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 152581223904887531}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 8.444445, y: 7.5555553}
+    newSize: {x: 1.375, y: 0.9375}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 1.44397, y: 6.575505}
+      - {x: -1.5517633, y: 6.508557}
+      - {x: -3.5973463, y: 4.3765435}
+      - {x: -3.8428335, y: 1.3352237}
+      - {x: -3.0868971, y: 0.44634247}
+      - {x: -2.0853252, y: 0.032966614}
+      - {x: 2.463921, y: 0.022315979}
+      - {x: 3.8428316, y: 1.0451083}
+      - {x: 3.7535658, y: 3.8641987}
+      - {x: 3.1742687, y: 4.930678}
+  m_UseDelaunayMesh: 0
+--- !u!61 &6185120860349655274
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 152581223904887531}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.07647467, y: 6.590458}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 8.444445, y: 7.5555553}
+    newSize: {x: 1.375, y: 0.9375}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 5.884448, y: 1.8660965}
+  m_EdgeRadius: 0
