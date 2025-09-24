@@ -709,7 +709,7 @@ Transform:
   m_GameObject: {fileID: 63324829}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 190.16, y: 30.78, z: 0}
+  m_LocalPosition: {x: -3.2, y: 0.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11402,7 +11402,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Help me collect 15 pineapples and desposit the pineapples by the flag!!
+  m_text: I found these wings on the way over here. Try them out! Also collect more
+    pineapples because I'm a greedy goblin
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -12002,7 +12003,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -71, y: 358}
+  m_AnchoredPosition: {x: 3366, y: 358}
   m_SizeDelta: {x: 921.7, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1248476380
@@ -17190,7 +17191,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7616090373400608217, guid: 660b9b84f07d1f6499036dfbf78af5b1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -31.480612
+      value: -22.42
       objectReference: {fileID: 0}
     - target: {fileID: 7616090373400608217, guid: 660b9b84f07d1f6499036dfbf78af5b1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -18046,7 +18047,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: -6367560908665664636, guid: 69cab13df0b0ef842820eaceef77e3d9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -18064,7 +18065,7 @@ Transform:
   m_GameObject: {fileID: 1566375406}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.528, y: -0.079, z: 0}
+  m_LocalPosition: {x: 2.42, y: -0.079, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18117,7 +18118,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.47054434, y: 0.45046902}
+  m_Offset: {x: -0.80586314, y: 0.45046902}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -18127,7 +18128,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.9410887, y: 0.90093803}
+  m_Size: {x: 2.6974788, y: 0.90093803}
   m_EdgeRadius: 0
 --- !u!4 &1567785505 stripped
 Transform:
@@ -22223,7 +22224,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3216, y: 659}
+  m_AnchoredPosition: {x: 3632, y: 1485}
   m_SizeDelta: {x: 921.7, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2005002299
