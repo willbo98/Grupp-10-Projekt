@@ -6,6 +6,8 @@ public class QuestChecker : MonoBehaviour
     [SerializeField] private GameObject dialogueBox, finishedText, unfinishedText;
     [SerializeField] private int questGoal = 15;
     [SerializeField] private int levelToLoad;
+    //
+    [SerializeField] private BossHealth bossHealth;
 
     [SerializeField] Animator anim;
     private void Start()
@@ -19,6 +21,10 @@ public class QuestChecker : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            var PlayerPickup = other.GetComponent<PlayerPickup>();
+
+            bool hasEnoughPineapples = PlayerPickup.pineAppleCollected >= questGoal;
+            bool bossDefeated = bossHealth == null || bossHealth.isDead;
             if(other.GetComponent<PlayerPickup>().pineAppleCollected >= questGoal)
             {
                 dialogueBox.SetActive(true);

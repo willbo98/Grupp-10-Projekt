@@ -4686,6 +4686,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 440226924}
   m_CullTransparentMesh: 1
+--- !u!114 &447158562 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7177082696177727927, guid: 43501b06fad39d743881654cfe0d0f23, type: 3}
+  m_PrefabInstance: {fileID: 1968151187}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8a55b01f4a78d64c91267333ea6d225, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &451961130 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7177920305446467323, guid: e0d0df488b3823f4096eb51394b36743, type: 3}
@@ -8266,7 +8277,7 @@ Transform:
   m_GameObject: {fileID: 895333194}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 81.81956, y: 51.6, z: 0.22612128}
+  m_LocalPosition: {x: 266.15, y: 115.04, z: 0.22612128}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8288,7 +8299,8 @@ MonoBehaviour:
   finishedText: {fileID: 153315013}
   unfinishedText: {fileID: 1244713257}
   questGoal: 15
-  levelToLoad: 2
+  levelToLoad: 0
+  bossHealth: {fileID: 447158562}
   anim: {fileID: 0}
 --- !u!95 &895333199
 Animator:
