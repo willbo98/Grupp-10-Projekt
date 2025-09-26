@@ -60,8 +60,8 @@ public class BossHealth : MonoBehaviour
 
                 bossMovement.DisableMovement();
                 audioSource.PlayOneShot(bossDeathSound);
-                musicManager.audioSource.clip = musicManager.songs[0];
-                musicManager.audioSource.PlayDelayed(bossDeathSound.length);
+          //      musicManager.audioSource.clip = musicManager.songs[0];
+          //      musicManager.audioSource.PlayDelayed(bossDeathSound.length);
                 Destroy(gameObject, bossDeathSound.length);
                 
                 
