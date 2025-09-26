@@ -13,6 +13,8 @@ public class BossHealth : MonoBehaviour
     private AudioSource audioSource;
     
     private bool canPlaySound = false;
+    //döda bossen checker
+    public bool isDead { get; private set; } = false;
     private BossMovement bossMovement;
 
     private void Start()
@@ -47,9 +49,9 @@ public class BossHealth : MonoBehaviour
             bossHealth--;
             print(bossHealth);
 
-            if (bossHealth < 1)
+            if (bossHealth < 1 && !isDead) //ändrade så att den kan kolla om den är död
             {
-
+                isDead = true;
 
                 GetComponent<Animator>().SetTrigger("Hit");
                 GetComponent<BoxCollider2D>().enabled = false;
@@ -59,11 +61,11 @@ public class BossHealth : MonoBehaviour
 
                 bossMovement.DisableMovement();
                 audioSource.PlayOneShot(bossDeathSound);
-                musicManager.audioSource.clip = musicManager.songs[0];
-                musicManager.audioSource.PlayDelayed(bossDeathSound.length);
+          //      musicManager.audioSource.clip = musicManager.songs[0];
+          //      musicManager.audioSource.PlayDelayed(bossDeathSound.length);
                 Destroy(gameObject, bossDeathSound.length);
-                
-                
+
+
             }
 
             
