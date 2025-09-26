@@ -8309,7 +8309,7 @@ MonoBehaviour:
   dialogueBox: {fileID: 1390924679}
   finishedText: {fileID: 153315013}
   unfinishedText: {fileID: 1244713257}
-  questGoal: 1
+  questGoal: 75
   levelToLoad: 0
   hasBoss: 1
   bossHealth: {fileID: 447158562}
