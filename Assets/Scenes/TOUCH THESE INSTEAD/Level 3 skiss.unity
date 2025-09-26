@@ -8181,6 +8181,7 @@ MonoBehaviour:
   unfinishedText: {fileID: 1244713257}
   questGoal: 15
   levelToLoad: 0
+  hasBoss: 0
   bossHealth: {fileID: 447158562}
   anim: {fileID: 0}
   questSuccess: {fileID: 8300000, guid: d1dffabec7e28ad4dbe93903b090ecbf, type: 3}
@@ -11783,7 +11784,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sorry, please pick up all pineapples
+  m_text: Sorry, please pick up all pineapples and kill the boss!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

@@ -6,7 +6,7 @@ public class QuestChecker : MonoBehaviour
     [SerializeField] private GameObject dialogueBox, finishedText, unfinishedText;
     [SerializeField] private int questGoal = 15;
     [SerializeField] private int levelToLoad;
-    //
+    [SerializeField] private bool hasBoss;
     [SerializeField] private BossHealth bossHealth;
 
     [SerializeField] Animator anim;
@@ -29,22 +29,47 @@ public class QuestChecker : MonoBehaviour
 
             bool hasEnoughPineapples = PlayerPickup.pineAppleCollected >= questGoal;
             bool bossDefeated = bossHealth == null || bossHealth.isDead;
-            if(other.GetComponent<PlayerPickup>().pineAppleCollected >= questGoal)
+            if (hasBoss == true)
             {
+                if (other.GetComponent<PlayerPickup>().pineAppleCollected >= questGoal && bossDefeated == true)
+                {
+                    audioSource.PlayOneShot(questSuccess);
+                    dialogueBox.SetActive(true);
+                    finishedText.SetActive(true);
+                    anim.SetTrigger("Flag");
+                    Invoke("LoadNextlevel", 3.5f);
+                }
+                else
+                {
+                    audioSource.PlayOneShot(questFail, 5f);
+                    dialogueBox.SetActive(true);
+                    unfinishedText.SetActive(true);
+
+
+                }
+
+            }
+            else
+            {
+                if (other.GetComponent<PlayerPickup>().pineAppleCollected >= questGoal)
+                {   
                 audioSource.PlayOneShot(questSuccess);
                 dialogueBox.SetActive(true);
                 finishedText.SetActive(true);
                 anim.SetTrigger("Flag");
                 Invoke("LoadNextlevel", 3.5f);
-            }
+                }
             else
-            {
-                audioSource.PlayOneShot(questFail, 5f); 
+                {
+                audioSource.PlayOneShot(questFail, 5f);
                 dialogueBox.SetActive(true);
-                unfinishedText.SetActive(true); 
-                
-                
+                unfinishedText.SetActive(true);
+
+
+                }
             }
+
+            
         }
 
     }
