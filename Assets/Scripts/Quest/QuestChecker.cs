@@ -10,8 +10,12 @@ public class QuestChecker : MonoBehaviour
     [SerializeField] private BossHealth bossHealth;
 
     [SerializeField] Animator anim;
+    [SerializeField] private AudioClip questSuccess, questFail;
+
+    private AudioSource audioSource;
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
         dialogueBox.SetActive(false);
         finishedText.SetActive(false);
@@ -27,6 +31,7 @@ public class QuestChecker : MonoBehaviour
             bool bossDefeated = bossHealth == null || bossHealth.isDead;
             if(other.GetComponent<PlayerPickup>().pineAppleCollected >= questGoal)
             {
+                audioSource.PlayOneShot(questSuccess);
                 dialogueBox.SetActive(true);
                 finishedText.SetActive(true);
                 anim.SetTrigger("Flag");
@@ -34,8 +39,11 @@ public class QuestChecker : MonoBehaviour
             }
             else
             {
-                dialogueBox.SetActive(true);   
-                unfinishedText.SetActive(true);  
+                audioSource.PlayOneShot(questFail, 5f); 
+                dialogueBox.SetActive(true);
+                unfinishedText.SetActive(true); 
+                
+                
             }
         }
 

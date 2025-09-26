@@ -55,7 +55,6 @@ public class BossHealth : MonoBehaviour
 
                 GetComponent<Animator>().SetTrigger("Hit");
                 GetComponent<BoxCollider2D>().enabled = false;
-                GetComponent<CircleCollider2D>().enabled = false;
                 GetComponent<PolygonCollider2D>().enabled = false;
                 GetComponent<Rigidbody2D>().gravityScale = 0f;
                 GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
