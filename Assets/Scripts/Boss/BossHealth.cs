@@ -63,8 +63,8 @@ public class BossHealth : MonoBehaviour
                 musicManager.audioSource.clip = musicManager.songs[0];
                 musicManager.audioSource.PlayDelayed(bossDeathSound.length);
                 Destroy(gameObject, bossDeathSound.length);
-                
-                
+
+
             }
 
             
