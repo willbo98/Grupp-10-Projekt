@@ -10844,8 +10844,8 @@ MonoBehaviour:
   levelToLoad: 0
   bossHealth: {fileID: 447158562}
   anim: {fileID: 0}
-  questSuccess: {fileID: 0}
-  questFail: {fileID: 0}
+  questSuccess: {fileID: 8300000, guid: d1dffabec7e28ad4dbe93903b090ecbf, type: 3}
+  questFail: {fileID: 8300000, guid: 31f022dc9fc8aa14bbe5d9bee5b37352, type: 3}
 --- !u!95 &895333199
 Animator:
   serializedVersion: 7
