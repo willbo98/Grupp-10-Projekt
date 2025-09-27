@@ -10,7 +10,7 @@ public class BossManager : MonoBehaviour
 
     void Start()
     {
-        GameObject boss = GameObject.Find("RockBoss");
+        GameObject boss = GameObject.Find("Boss");
 
         bossHealth = boss.GetComponent<BossHealth>();
 

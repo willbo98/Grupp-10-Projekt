@@ -4,6 +4,14 @@ public class PowerUpPickup : MonoBehaviour
 {
     public enum AbilityType { DoubleJump, WallJump }
     public AbilityType abilityToUnlock;
+    [SerializeField] private AudioClip powerUp;
+
+    private AudioSource audioSource;
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -22,8 +30,9 @@ public class PowerUpPickup : MonoBehaviour
                         break;
                 }
             }
-
-            Destroy(gameObject); // remove pickup after use
+            audioSource.PlayOneShot(powerUp, 1f);
+            GetComponent<SpriteRenderer>().enabled = false;
+            Destroy(gameObject,powerUp.length); // remove pickup after use
         }
     }
 }

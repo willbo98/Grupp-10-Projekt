@@ -8,12 +8,12 @@ public class BossHealth : MonoBehaviour
 
     private MusicManager musicManager;
 
-    public float bossHealth;
+    [SerializeField]public float bossHealth;
 
     private AudioSource audioSource;
     
     private bool canPlaySound = false;
-    //döda bossen checker
+    //dï¿½da bossen checker
     public bool isDead { get; private set; } = false;
     private BossMovement bossMovement;
 
@@ -49,7 +49,7 @@ public class BossHealth : MonoBehaviour
             bossHealth--;
             print(bossHealth);
 
-            if (bossHealth < 1 && !isDead) //ändrade så att den kan kolla om den är död
+            if (bossHealth < 1 && !isDead) //ï¿½ndrade sï¿½ att den kan kolla om den ï¿½r dï¿½d
             {
                 isDead = true;
 

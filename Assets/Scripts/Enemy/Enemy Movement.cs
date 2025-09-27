@@ -58,7 +58,7 @@ public class EnemyMovement : MonoBehaviour
         {
             
             audioSource.pitch = Random.Range(0.9f, 1.1f);
-            audioSource.PlayOneShot(hitSound, 0.3f);
+            audioSource.PlayOneShot(hitSound, 1f);
 
 
             
@@ -87,7 +87,7 @@ public class EnemyMovement : MonoBehaviour
 
            
             audioSource.pitch = Random.Range(0.9f, 1.1f);
-            audioSource.PlayOneShot(getHitSound, 0.3f);
+            audioSource.PlayOneShot(getHitSound, 1f);
 
             canMove = false;
             Destroy(gameObject, 0.45f);

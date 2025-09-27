@@ -42,7 +42,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 374152240953829749}
-  - component: {fileID: 8413862376461660206}
+  - component: {fileID: 2920897700601726141}
   - component: {fileID: 3832779390099906782}
   m_Layer: 0
   m_Name: BossManager
@@ -66,7 +66,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8729526243999452717}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8413862376461660206
+--- !u!114 &2920897700601726141
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -114,7 +114,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -12.827436, y: -8.189018}
+  m_Offset: {x: -26.796257, y: -8.189018}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -124,7 +124,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 66.99422, y: 34.68953}
+  m_Size: {x: 61.043015, y: 34.68953}
   m_EdgeRadius: 0
 --- !u!1 &8881328553682053787
 GameObject:
@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 1417472922393536796}
   - component: {fileID: 6447254762832619913}
   m_Layer: 7
-  m_Name: RockBoss
+  m_Name: Boss
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -211,7 +211,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1437911168, guid: e729bb36a8328f44e92246710ce8d2cf, type: 3}
+  m_Sprite: {fileID: 6858001784930192701, guid: a5605347558fa37479578fa96651b225, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -232,7 +232,7 @@ Animator:
   m_GameObject: {fileID: 8881328553682053787}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 63aa86be3ed3fc04cb8f0dd52298f396, type: 2}
+  m_Controller: {fileID: 9100000, guid: 64968c0ce4d456f4e859c639a6aeac6b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -256,7 +256,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 996b9f41067b507479d9b1841b3cb330, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+  moveSpeed: 6.5
+  canJump: 1
+  jumpForce: 5
+  jumpinterval: 3
 --- !u!114 &7177082696177727927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,7 +275,7 @@ MonoBehaviour:
   bounciness: 500
   getHitSound: {fileID: 8300000, guid: 7b689124d1ec2d14d81f1fc198474602, type: 3}
   bossDeathSound: {fileID: 8300000, guid: 22b8b9a8cbccb754d8bba90c47591817, type: 3}
-  bossHealth: 5
+  bossHealth: 10
 --- !u!114 &649801274698372203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -447,8 +450,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 3.4049978}
-  m_Radius: 3.8494425
+  m_Offset: {x: 0.21464634, y: 1.7143087}
+  m_Radius: 1.944108
 --- !u!60 &1417472922393536796
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -487,7 +490,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 8.444445, y: 7.5555553}
+    oldSize: {x: 7.428571, y: 4.857143}
     newSize: {x: 1.375, y: 0.9375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -495,16 +498,18 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 1.44397, y: 6.575505}
-      - {x: -1.5517633, y: 6.508557}
-      - {x: -3.5973463, y: 4.3765435}
-      - {x: -3.8428335, y: 1.3352237}
-      - {x: -3.0868971, y: 0.44634247}
-      - {x: -2.0853252, y: 0.032966614}
+    - - {x: 1.8603823, y: 4.1364713}
+      - {x: -1.0461175, y: 4.3967175}
+      - {x: -2.3480787, y: 4.01961}
+      - {x: -2.6958618, y: 3.3969193}
+      - {x: -2.959076, y: 2.4723969}
+      - {x: -3.9023123, y: 1.9003634}
+      - {x: -2.9084303, y: 0.65454865}
+      - {x: -1.4309673, y: 0.092453}
       - {x: 2.463921, y: 0.022315979}
-      - {x: 3.8428316, y: 1.0451083}
-      - {x: 3.7535658, y: 3.8641987}
-      - {x: 3.1742687, y: 4.930678}
+      - {x: 2.9802523, y: 1.0451083}
+      - {x: 3.3371534, y: 2.3174992}
+      - {x: 2.9363232, y: 3.3839784}
   m_UseDelaunayMesh: 0
 --- !u!61 &6447254762832619913
 BoxCollider2D:
@@ -540,15 +545,15 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.018987179, y: 6.590458}
+  m_Offset: {x: 0.2668078, y: 3.6746979}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 8.444445, y: 7.5555553}
+    oldSize: {x: 7.428571, y: 4.857143}
     newSize: {x: 1.375, y: 0.9375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 4.6963797, y: 1.8660965}
+  m_Size: {x: 5.1920314, y: 1.9621735}
   m_EdgeRadius: 0

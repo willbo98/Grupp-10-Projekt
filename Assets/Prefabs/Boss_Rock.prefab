@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 1417472922393536796}
   - component: {fileID: 6447254762832619913}
   m_Layer: 7
-  m_Name: RockBoss
+  m_Name: Boss
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -256,6 +256,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
+  canJump: 0
+  jumpForce: 5
+  jumpinterval: 3
 --- !u!114 &7177082696177727927
 MonoBehaviour:
   m_ObjectHideFlags: 0
