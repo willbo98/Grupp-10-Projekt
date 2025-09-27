@@ -8,6 +8,8 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private Slider healthSlider;
     [SerializeField] private AudioClip healthUpSound;
 
+    [SerializeField] private GameObject healthParticles;
+
     private int currentHealth = 0;
     private Rigidbody2D Rgbd;
     private AudioSource audioSource;
@@ -50,6 +52,7 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth >= startingHealth) return;
 
         int healthToRestore = healthPickup.GetComponent<HealthPickUp>().healthAmount;
+        Instantiate(healthParticles, transform.position, Quaternion.identity);
         currentHealth += healthToRestore;
         UpdateHealthbar();
         audioSource.PlayOneShot(healthUpSound, 0.3f);

@@ -127,6 +127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityToUnlock: 0
   powerUp: {fileID: 8300000, guid: 6d7b9d7ec74ce4b44b439f0714aaa90c, type: 3}
+  powerUpParticle: {fileID: 6623075433067777308, guid: ad9f1c1084e5bcc4597fe50b5c22b80f, type: 3}
 --- !u!61 &2913807275010303963
 BoxCollider2D:
   m_ObjectHideFlags: 0

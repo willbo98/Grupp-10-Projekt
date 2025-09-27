@@ -6,6 +6,8 @@ public class PowerUpPickup : MonoBehaviour
     public AbilityType abilityToUnlock;
     [SerializeField] private AudioClip powerUp;
 
+    [SerializeField] private GameObject powerUpParticle;
+
     private AudioSource audioSource;
 
     void Start()
@@ -24,9 +26,11 @@ public class PowerUpPickup : MonoBehaviour
                 {
                     case AbilityType.DoubleJump:
                         ability.EnableDoubleJump();
+                        Instantiate(powerUpParticle, other.transform.position, Quaternion.identity);
                         break;
                     case AbilityType.WallJump:
                         ability.EnableWallJump();
+                        Instantiate(powerUpParticle, other.transform.position, Quaternion.identity);
                         break;
                 }
             }
