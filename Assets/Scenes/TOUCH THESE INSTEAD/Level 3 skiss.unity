@@ -19877,7 +19877,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7177082696177727927, guid: 43501b06fad39d743881654cfe0d0f23, type: 3}
       propertyPath: bossHealth
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7787416372050693765, guid: 43501b06fad39d743881654cfe0d0f23, type: 3}
       propertyPath: m_Sprite
