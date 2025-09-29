@@ -14751,7 +14751,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: I found these wings on the way over here. Try them out! Maybe you can jump
-    higher? Also collect more pineapples because I'm a greedy goblin and defeat the
+    higher? Also collect 75 pineapples because I'm a greedy goblin and defeat the
     boss
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
